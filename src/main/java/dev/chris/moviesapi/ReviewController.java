@@ -2,12 +2,11 @@ package dev.chris.moviesapi;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
+
 
 @RestController
 @RequestMapping("/api/v1/reviews")
@@ -19,6 +18,7 @@ public class ReviewController {
         this.reviewService = reviewService;
     }
 
+    //Create
     @PostMapping
     //A POST request is needed to create a new review
     //The POST endpoint accepts a JSON payload, which is why we use the Map<String, String> payload
@@ -29,4 +29,16 @@ public class ReviewController {
         //The payload is a map that contains the body of the review and the imdbId of the movie
         //Remember that CREATED returns a 201 status code
     }
+
+    // Read
+    // Gets all reviews for a specific movie
+    @GetMapping("/{imdbId}")
+    public ResponseEntity<List<Review>> getReviewsByImdbId(@PathVariable String imdbId) {
+        return new ResponseEntity<List<Review>>(reviewService.getAllReviewsByImdbId(imdbId), HttpStatus.OK);
+    }
+
+
+
+
+
 }
