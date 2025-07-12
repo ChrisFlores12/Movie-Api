@@ -1,5 +1,6 @@
 package dev.chris.moviesapi;
 
+import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,8 +38,11 @@ public class ReviewController {
         return new ResponseEntity<List<Review>>(reviewService.getAllReviewsByImdbId(imdbId), HttpStatus.OK);
     }
 
-
-
+    @DeleteMapping("/{reviewId}")
+    public ResponseEntity<Review> deleteReview(@PathVariable ObjectId reviewId) {
+        reviewService.deleteReviewById(reviewId);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT); // Returns a 204 status code
+    }
 
 
 }

@@ -2,6 +2,7 @@ package dev.chris.moviesapi;
 
 
 
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Update;
@@ -54,6 +55,28 @@ public class ReviewService {
 
         return movie.getReviewIds();
     }
+
+    // Update Review
+    /*
+    public Review updateReviewById(ObjectId reviewId, String body) {
+        Review review = reviewRepository.findById(reviewId)
+                .orElseThrow(() -> new RuntimeException("Review with ID " + reviewId + " not found"));
+
+        // Update the body of the review
+        review.setBody(body);
+        return reviewRepository.save(review); // Save the updated review back to the database
+    }
+
+     */
+
+    // Delete
+    public void deleteReviewById(ObjectId reviewId) {
+        if (!reviewRepository.existsById(reviewId)) {
+            throw new RuntimeException("Review with ID " + reviewId + " not found");
+        }
+        reviewRepository.deleteById(reviewId);
+    }
+
 
 
 
