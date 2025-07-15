@@ -1,6 +1,5 @@
-package dev.chris.moviesapi;
+package dev.chris.moviesapi.movies;
 
-import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

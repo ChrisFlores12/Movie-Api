@@ -1,5 +1,6 @@
-package dev.chris.moviesapi;
+package dev.chris.moviesapi.movies;
 
+import dev.chris.moviesapi.reviews.Review;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

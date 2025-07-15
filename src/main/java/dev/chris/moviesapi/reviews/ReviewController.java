@@ -1,4 +1,4 @@
-package dev.chris.moviesapi;
+package dev.chris.moviesapi.reviews;
 
 import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;

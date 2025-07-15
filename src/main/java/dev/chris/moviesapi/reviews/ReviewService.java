@@ -1,7 +1,8 @@
-package dev.chris.moviesapi;
+package dev.chris.moviesapi.reviews;
 
 
 
+import dev.chris.moviesapi.movies.Movie;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
